@@ -8,17 +8,13 @@ import { TELEGRAM_MODULE_OPTIONS } from './telegram.constants';
 
 @Injectable()
 export class TelegramService implements OnModuleInit {
-  private url: string;
+  private url: string = `https://api.telegram.org/bot${this.options.botKey}/`;;
 
   constructor(
     @Inject(TELEGRAM_MODULE_OPTIONS)
     private readonly options: TelegramModuleOptions,
     private readonly http: HttpService,
   ) {}
-
-  onModuleInit() {
-    this.url = `https://api.telegram.org/bot${this.options.botKey}/`;
-  }
 
   private doCall<T>(
     url: string,
