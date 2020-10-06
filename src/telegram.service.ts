@@ -1,4 +1,4 @@
-import { HttpService, Inject, Injectable, OnModuleInit } from '@nestjs/common';
+import { HttpService, Inject, Injectable } from '@nestjs/common';
 import { AxiosRequestConfig } from 'axios';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -7,7 +7,7 @@ import * as Telegram from './interfaces/telegramTypes.interface';
 import { TELEGRAM_MODULE_OPTIONS } from './telegram.constants';
 
 @Injectable()
-export class TelegramService implements OnModuleInit {
+export class TelegramService {
   private url: string = `https://api.telegram.org/bot${this.options.botKey}/`;;
 
   constructor(
